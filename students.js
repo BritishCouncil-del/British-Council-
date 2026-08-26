@@ -1,6 +1,5 @@
-// قاعدة بيانات الطلاب
 const students = {
-  // مثال طالب قديم
+  // طالب قديم كمثال
   "12345": {
     candidate: "67890",
     candidateId: "C001",
@@ -19,10 +18,10 @@ const students = {
     image: "ahmed.png"
   },
 
-  // 👇 الطالب الجديد من تقرير الـ IELTS
-  "009471": {
-    candidate: "009471",
-    candidateId: "A04468374",
+  // الطالب الجديد من تقرير الـ IELTS
+  "26EG009471ABDA001A": {
+    candidate: "009471",              // رقم المرشح
+    candidateId: "A04468374",         // رقم الهوية
     name: "AHMED ABDELAATY ABDELHALIM",
     dob: "1995-01-01",
     sex: "M",
