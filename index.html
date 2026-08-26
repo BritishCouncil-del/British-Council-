@@ -2,42 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IELTS TRF Portal</title>
+  <title>IELTS Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="welcome">
 
-  <!-- الهيدر الأحمر -->
   <div class="header">
-    <h1 style="color:white;">IELTS™ Portal</h1>
-    <img src="images/ielts-logos.png" alt="IELTS Logos">
+    <img src="images/ielts-logos.png" alt="IELTS Logo" class="ielts-logo">
+    <h1>IELTS Portal</h1>
   </div>
 
-  <!-- البار -->
   <div class="marquee">
-    <span>جميع أنواع اختبار الآيلتس (Academic - General - UKVI - Life Skills)</span>
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      جميع أنواع اختبار الآيلتس (Academic - General - UKVI - Life Skills)
+    </marquee>
   </div>
 
-  <!-- مربع البحث -->
   <div class="form-box">
-    <h2 style="color:#b30000;">IELTS</h2>
+    <h1 class="ielts-title">IELTS</h1>
     <form onsubmit="return goToResults()">
-      <input type="text" id="serial" placeholder="TRF Serial Number" required>
+      <input type="text" id="serial" placeholder="Serial Number" required>
       <input type="text" id="candidate" placeholder="Candidate Number" required>
-      <button type="submit">View Result</button>
+      <button type="submit" class="btn-animate">عرض النتيجة</button>
     </form>
+    <p id="errorMsg" style="color:red;font-weight:bold;"></p>
   </div>
 
+  <footer>
+    © 2026 IELTS Results Portal | All Rights Reserved | 
+    <a href="https://ielts.org" target="_blank">Official IELTS Website</a>
+  </footer>
+
+  <script src="students.js"></script>
   <script>
     function goToResults() {
       const serial = document.getElementById('serial').value.trim();
       const candidate = document.getElementById('candidate').value.trim();
-      localStorage.setItem('serial', serial);
-      localStorage.setItem('candidate', candidate);
-      window.location.href = "results.html";
+      const student = students[serial];
+
+      if (student && student.candidate === candidate) {
+        localStorage.setItem('serial', serial);
+        localStorage.setItem('candidate', candidate);
+        window.location.href = "results.html";
+      } else {
+        document.getElementById("errorMsg").textContent =
+          "❌ Invalid Serial or Candidate Number. Please try again.";
+      }
       return false;
     }
   </script>
-
 </body>
 </html>
