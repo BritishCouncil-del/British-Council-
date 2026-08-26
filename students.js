@@ -1,5 +1,5 @@
 const students = {
-  // طالب قديم كمثال
+  // مثال طالب قديم
   "12345": {
     candidate: "67890",
     candidateId: "C001",
