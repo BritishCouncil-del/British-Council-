@@ -49,7 +49,7 @@
           <tr><td><strong>Test Date:</strong></td><td id="examDate"></td></tr>
           <tr><td><strong>TRF Number:</strong></td><td id="trfNumber"></td></tr>
         </table>
-        <img id="studentPhoto" src="images/albedwawi.png" alt="Candidate Photo" class="student-photo">
+        <img id="studentPhoto" src="" alt="Candidate Photo" class="student-photo">
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
       document.getElementById("studentPhoto").src = "images/" + student.image;
     } else {
       document.getElementById("result").innerHTML =
-        "<p style='color:red;font-weight:bold;'>❌ No results found. Please check your Serial Number and Candidate Number.</p>";
+        "<div class='alert-box'>❌ No results found. Please check your Serial Number and Candidate Number.</div>";
     }
   </script>
 </body>
