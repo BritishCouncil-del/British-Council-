@@ -62,10 +62,9 @@
   <script src="students.js"></script>
   <script>
     const serial = localStorage.getItem('serial');
-    const candidate = localStorage.getItem('candidate');
     const student = students[serial];
 
-    if (student && student.candidate === candidate) {
+    if (student) {
       document.getElementById("centreNumber").textContent = student.centre;
       document.getElementById("centreName").textContent = student.centreName;
       document.getElementById("candidateNumber").textContent = student.candidate;
@@ -83,7 +82,7 @@
       document.getElementById("studentPhoto").src = "images/" + student.image;
     } else {
       document.getElementById("result").innerHTML =
-        "<div class='alert-box'>❌ No results found. Please check your Serial Number and Candidate Number.</div>";
+        "<div class='alert-box'>❌ No results found. Please check your Serial/TRF Number.</div>";
     }
   </script>
 </body>
