@@ -5,57 +5,55 @@
   <title>IELTS TRF Results</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="results">
 
-  <!-- الهيدر الأحمر -->
   <div class="header">
-    <h1 style="color:white;">IELTS™</h1>
-    <img src="images/ielts-logos.png" alt="IELTS Logos">
+    <img src="images/ielts-logos.png" alt="IELTS Logo" class="ielts-logo">
+    <h1>IELTS Results</h1>
   </div>
 
-  <!-- البار -->
   <div class="marquee">
-    <span>IELTS Academic | IELTS General Training | IELTS UKVI | IELTS Life Skills</span>
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      All IELTS Test Types (Academic - General - UKVI - Life Skills)
+    </marquee>
   </div>
 
-  <!-- القوائم الجانبية -->
-  <aside>
-    <a href="index.html">🏠 Home</a>
-    <a href="#">📄 TRF Query</a>
-    <a href="#">⬇️ Download Results</a>
-    <a href="#">👥 Manage Users</a>
-    <a href="#">⚙️ Update Profile</a>
-    <a href="#">❓ FAQs</a>
-    <a href="https://ielts.org">🌐 IELTS.org</a>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="#">TRF Query</a></li>
+      <li><a href="#">Download Results</a></li>
+      <li><a href="#">Manage Users</a></li>
+      <li><a href="#">Update Profile</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="https://ielts.org" target="_blank">IELTS.org</a></li>
+    </ul>
   </aside>
 
-  <!-- بيانات الطالب -->
   <div class="content">
     <div class="result-card" id="result">
-      <table>
-        <tr><td><strong>Centre Number:</strong></td><td id="centreNumber"></td></tr>
-        <tr><td><strong>Centre Name:</strong></td><td id="centreName"></td></tr>
-        <tr><td><strong>Candidate Number:</strong></td><td id="candidateNumber"></td></tr>
-        <tr><td><strong>Name:</strong></td><td id="studentName"></td></tr>
-        <tr><td><strong>Date of Birth:</strong></td><td id="dob"></td></tr>
-        <tr><td><strong>Listening:</strong></td><td id="listening"></td></tr>
-        <tr><td><strong>Reading:</strong></td><td id="reading"></td></tr>
-        <tr><td><strong>Writing:</strong></td><td id="writing"></td></tr>
-        <tr><td><strong>Speaking:</strong></td><td id="speaking"></td></tr>
-        <tr class="score-row"><td><strong>Overall Band Score:</strong></td><td id="overall"></td></tr>
-        <tr><td><strong>Test Date:</strong></td><td id="examDate"></td></tr>
-        <tr><td><strong>TRF Number:</strong></td><td id="trfNumber"></td></tr>
-      </table>
-      <img id="studentPhoto" src="" alt="Candidate Photo">
-    </div>
-
-    <!-- شعار الثلاث شعارات -->
-    <div class="banner-bottom">
-      <img src="images/ielts-banner.png" alt="IELTS Banner">
+      <div class="result-layout">
+        <table>
+          <tr><td><strong>Centre Number:</strong></td><td id="centreNumber"></td></tr>
+          <tr><td><strong>Centre Name:</strong></td><td id="centreName"></td></tr>
+          <tr><td><strong>Candidate Number:</strong></td><td id="candidateNumber"></td></tr>
+          <tr><td><strong>Candidate ID:</strong></td><td id="candidateId"></td></tr>
+          <tr><td><strong>Name:</strong></td><td id="studentName"></td></tr>
+          <tr><td><strong>Date of Birth:</strong></td><td id="dob"></td></tr>
+          <tr><td><strong>Sex:</strong></td><td id="sex"></td></tr>
+          <tr><td><strong>Listening:</strong></td><td id="listening"></td></tr>
+          <tr><td><strong>Reading:</strong></td><td id="reading"></td></tr>
+          <tr><td><strong>Writing:</strong></td><td id="writing"></td></tr>
+          <tr><td><strong>Speaking:</strong></td><td id="speaking"></td></tr>
+          <tr class="score-row"><td><strong>Overall Band Score:</strong></td><td id="overall"></td></tr>
+          <tr><td><strong>Test Date:</strong></td><td id="examDate"></td></tr>
+          <tr><td><strong>TRF Number:</strong></td><td id="trfNumber"></td></tr>
+        </table>
+        <img id="studentPhoto" src="images/albedwawi.png" alt="Candidate Photo" class="student-photo">
+      </div>
     </div>
   </div>
 
-  <!-- الفوتر -->
   <footer>
     © 2026 IELTS Results Portal | All Rights Reserved | 
     <a href="https://ielts.org" target="_blank">Official IELTS Website</a>
@@ -71,8 +69,10 @@
       document.getElementById("centreNumber").textContent = student.centre;
       document.getElementById("centreName").textContent = student.centreName;
       document.getElementById("candidateNumber").textContent = student.candidate;
+      document.getElementById("candidateId").textContent = student.candidateId;
       document.getElementById("studentName").textContent = student.name;
       document.getElementById("dob").textContent = student.dob;
+      document.getElementById("sex").textContent = student.sex;
       document.getElementById("examDate").textContent = student.examDate;
       document.getElementById("overall").textContent = student.overall;
       document.getElementById("listening").textContent = student.listening;
