@@ -21,8 +21,7 @@
   <div class="form-box">
     <h1 class="ielts-title">IELTS</h1>
     <form onsubmit="return goToResults()">
-      <input type="text" id="serial" placeholder="Serial Number" required>
-      <input type="text" id="candidate" placeholder="Candidate Number" required>
+      <input type="text" id="serial" placeholder="Enter Serial/TRF Number" required>
       <button type="submit" class="btn-animate">عرض النتيجة</button>
     </form>
     <div id="errorMsg"></div>
@@ -37,16 +36,14 @@
   <script>
     function goToResults() {
       const serial = document.getElementById('serial').value.trim();
-      const candidate = document.getElementById('candidate').value.trim();
       const student = students[serial];
 
-      if (student && student.candidate === candidate) {
+      if (student) {
         localStorage.setItem('serial', serial);
-        localStorage.setItem('candidate', candidate);
         window.location.href = "results.html";
       } else {
         document.getElementById("errorMsg").innerHTML =
-          "<div class='alert-box'>❌ Invalid Serial or Candidate Number</div>";
+          "<div class='alert-box'>❌ Invalid Serial/TRF Number</div>";
       }
       return false;
     }
