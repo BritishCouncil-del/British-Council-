@@ -7,13 +7,11 @@
 </head>
 <body class="results">
 
-  <!-- Header -->
   <div class="header">
     <img src="images/ielts-logos.png" alt="IELTS Logo" class="ielts-logo">
     <h1>IELTS Results</h1>
   </div>
 
-  <!-- Blue bar -->
   <div class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="6">
       Match Found - IELTS Academic - General - UKVI - Life Skills
@@ -21,7 +19,6 @@
   </div>
 
   <div class="container">
-    <!-- Sidebar -->
     <div class="sidebar">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -34,7 +31,6 @@
       </ul>
     </div>
 
-    <!-- Results Box -->
     <div class="results-box">
       <h2>Test Report Form (TRF)</h2>
       <img id="studentPhoto" src="" alt="Student Photo" style="width:150px;float:right;margin:10px;">
@@ -50,12 +46,10 @@
         <tr><td><strong>Overall Band Score:</strong></td><td id="overall" class="score"></td></tr>
       </table>
 
-      <!-- Logos -->
       <div class="logos">
         <img src="images/ielts-logos.png" alt="IELTS Logos">
       </div>
 
-      <!-- Banner -->
       <div class="banner">
         <marquee behavior="scroll" direction="left" scrollamount="8">
           <img src="images/ielts-banner.png" alt="IELTS Banner">
@@ -64,7 +58,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     © 2026 IELTS Results Portal | All Rights Reserved | 
     <a href="https://ielts.org" target="_blank">Official IELTS Website</a>
@@ -72,7 +65,6 @@
 
   <script src="students.js"></script>
   <script>
-    // استرجاع السيريال من التخزين
     const serial = localStorage.getItem('serial');
     const student = students[serial];
 
