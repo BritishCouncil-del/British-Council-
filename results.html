@@ -1,59 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>IELTS TRF Results</title>
+  <title>نتائج اختبار IELTS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="results">
 
+  <!-- Header -->
   <div class="header">
     <img src="images/ielts-logos.png" alt="IELTS Logo" class="ielts-logo">
     <h1>IELTS Results</h1>
   </div>
 
+  <!-- Blue bar -->
   <div class="marquee">
     <marquee behavior="scroll" direction="left" scrollamount="6">
-      All IELTS Test Types (Academic - General - UKVI - Life Skills)
+      Match Found - IELTS Academic - General - UKVI - Life Skills
     </marquee>
   </div>
 
-  <aside class="sidebar">
-    <ul>
-      <li><a href="index.html">🏠 Home</a></li>
-      <li><a href="#">TRF Query</a></li>
-      <li><a href="#">Download Results</a></li>
-      <li><a href="#">Manage Users</a></li>
-      <li><a href="#">Update Profile</a></li>
-      <li><a href="#">FAQs</a></li>
-      <li><a href="https://ielts.org" target="_blank">IELTS.org</a></li>
-    </ul>
-  </aside>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">TRF Query</a></li>
+        <li><a href="#">Download Results</a></li>
+        <li><a href="#">Manage Users</a></li>
+        <li><a href="#">Update Profile</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">IELTS.org</a></li>
+      </ul>
+    </div>
 
-  <div class="content">
-    <div class="result-card" id="result">
-      <div class="result-layout">
-        <table>
-          <tr><td><strong>Centre Number:</strong></td><td id="centreNumber"></td></tr>
-          <tr><td><strong>Centre Name:</strong></td><td id="centreName"></td></tr>
-          <tr><td><strong>Candidate Number:</strong></td><td id="candidateNumber"></td></tr>
-          <tr><td><strong>Candidate ID:</strong></td><td id="candidateId"></td></tr>
-          <tr><td><strong>Name:</strong></td><td id="studentName"></td></tr>
-          <tr><td><strong>Date of Birth:</strong></td><td id="dob"></td></tr>
-          <tr><td><strong>Sex:</strong></td><td id="sex"></td></tr>
-          <tr><td><strong>Listening:</strong></td><td id="listening"></td></tr>
-          <tr><td><strong>Reading:</strong></td><td id="reading"></td></tr>
-          <tr><td><strong>Writing:</strong></td><td id="writing"></td></tr>
-          <tr><td><strong>Speaking:</strong></td><td id="speaking"></td></tr>
-          <tr class="score-row"><td><strong>Overall Band Score:</strong></td><td id="overall"></td></tr>
-          <tr><td><strong>Test Date:</strong></td><td id="examDate"></td></tr>
-          <tr><td><strong>TRF Number:</strong></td><td id="trfNumber"></td></tr>
-        </table>
-        <img id="studentPhoto" src="" alt="Candidate Photo" class="student-photo">
+    <!-- Results Box -->
+    <div class="results-box">
+      <h2>Test Report Form (TRF)</h2>
+      <img id="studentPhoto" src="" alt="Student Photo" style="width:150px;float:right;margin:10px;">
+      <table>
+        <tr><td><strong>Candidate Number:</strong></td><td id="candidateNumber"></td></tr>
+        <tr><td><strong>Name:</strong></td><td id="studentName"></td></tr>
+        <tr><td><strong>Date of Birth:</strong></td><td id="dob"></td></tr>
+        <tr><td><strong>Test Date:</strong></td><td id="examDate"></td></tr>
+        <tr><td><strong>Listening:</strong></td><td id="listening"></td></tr>
+        <tr><td><strong>Reading:</strong></td><td id="reading"></td></tr>
+        <tr><td><strong>Writing:</strong></td><td id="writing"></td></tr>
+        <tr><td><strong>Speaking:</strong></td><td id="speaking"></td></tr>
+        <tr><td><strong>Overall Band Score:</strong></td><td id="overall" class="score"></td></tr>
+      </table>
+
+      <!-- Logos -->
+      <div class="logos">
+        <img src="images/ielts-logos.png" alt="IELTS Logos">
+      </div>
+
+      <!-- Banner -->
+      <div class="banner">
+        <marquee behavior="scroll" direction="left" scrollamount="8">
+          <img src="images/ielts-banner.png" alt="IELTS Banner">
+        </marquee>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     © 2026 IELTS Results Portal | All Rights Reserved | 
     <a href="https://ielts.org" target="_blank">Official IELTS Website</a>
@@ -61,28 +72,23 @@
 
   <script src="students.js"></script>
   <script>
+    // استرجاع السيريال من التخزين
     const serial = localStorage.getItem('serial');
     const student = students[serial];
 
     if (student) {
-      document.getElementById("centreNumber").textContent = student.centre;
-      document.getElementById("centreName").textContent = student.centreName;
-      document.getElementById("candidateNumber").textContent = student.candidate;
-      document.getElementById("candidateId").textContent = student.candidateId;
       document.getElementById("studentName").textContent = student.name;
+      document.getElementById("candidateNumber").textContent = student.candidate;
       document.getElementById("dob").textContent = student.dob;
-      document.getElementById("sex").textContent = student.sex;
       document.getElementById("examDate").textContent = student.examDate;
       document.getElementById("overall").textContent = student.overall;
       document.getElementById("listening").textContent = student.listening;
       document.getElementById("reading").textContent = student.reading;
       document.getElementById("writing").textContent = student.writing;
       document.getElementById("speaking").textContent = student.speaking;
-      document.getElementById("trfNumber").textContent = student.trfNumber;
       document.getElementById("studentPhoto").src = "images/" + student.image;
     } else {
-      document.getElementById("result").innerHTML =
-        "<div class='alert-box'>❌ No results found. Please check your Serial/TRF Number.</div>";
+      document.querySelector(".results-box").innerHTML = "<p style='color:red'>❌ البيانات غير صحيحة أو الطالب غير موجود</p>";
     }
   </script>
 </body>
