@@ -1,211 +1,135 @@
-/* ====== إعدادات عامة ====== */
 body {
+  font-family: 'Cairo', sans-serif;
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: url("images/background.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background-color: #fff;
 }
-
-h1, h2 {
-  margin: 0;
-}
-
-/* ====== Header ====== */
-.header {
-  background: linear-gradient(90deg, #b30000, #800000);
-  color: #fff;
-  padding: 30px;
+header {
+  background-color: #d60000;
+  color: white;
+  padding: 15px;
   text-align: center;
-  width: 100%;
 }
-.ielts-logo {
-  height: 70px;
-  vertical-align: middle;
-  margin-right: 15px;
-}
-
-/* ====== Blue bar ====== */
-.bar {
-  background: linear-gradient(90deg, #003366, #005599);
-  color: #fff;
+header h1 {
+  margin: 0;
+  font-size: 26px;
   font-weight: bold;
-  padding: 15px;
+}
+header .subtitle {
   font-size: 16px;
-  width: 100%;
+  font-style: italic;
 }
-
-/* ====== Footer ====== */
-footer {
-  background: #f0f0f0;
+.download {
   text-align: center;
-  padding: 15px;
-  border-top: 1px solid #ccc;
-  margin-top: auto;
-  width: 100%;
+  margin: 15px;
 }
-footer a {
-  color: #003366;
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0073e6;
+  color: white;
   text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
 }
-footer a:hover {
-  text-decoration: underline;
+.download-btn:hover {
+  background-color: #005bb5;
 }
-
-/* ====== Sidebar ====== */
+.blue-bar {
+  background-color: #0073e6;
+  color: white;
+  padding: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.blue-bar span {
+  position: absolute;
+  white-space: nowrap;
+  animation: scrollText 12s linear infinite;
+}
+@keyframes scrollText {
+  0% { right: -100%; }
+  100% { right: 100%; }
+}
+.container {
+  display: flex;
+  padding: 20px;
+}
 .sidebar {
   width: 220px;
-  background: #b30000;
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  min-height: 100%;
+  background-color: #d60000;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-left: 15px;
 }
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
-.sidebar ul li {
-  border-bottom: 1px solid #800000;
+.sidebar li {
+  margin: 12px 0;
 }
-.sidebar ul li a {
-  display: block;
-  padding: 14px;
-  color: #fff;
+.sidebar a {
+  color: white;
   text-decoration: none;
-  font-weight: bold;
 }
-.sidebar ul li a:hover {
-  background: #800000;
-  transition: 0.3s;
-}
-
-/* ====== Results Box ====== */
-.results-box {
-  background: rgba(255,255,255,0.95);
-  margin: 20px;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+.report {
   flex: 1;
-  border: 2px solid #b30000;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 20px;
 }
-.results-box h2 {
-  text-align: center;
-  color: #b30000;
-  margin-bottom: 20px;
-}
-.trf-details {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #333;
-  background: #fafafa;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-/* ====== جدول النتائج ====== */
-.results-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  margin-bottom: 30px;
-}
-.results-table {
-  width: 70%;
+table {
+  width: 100%;
   border-collapse: collapse;
-  background: #fff;
 }
-.results-table td {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-.results-table tr:nth-child(even) { background-color: #f2f2f2; }
-.results-table tr:nth-child(odd) { background-color: #ffffff; }
-.results-table tr:hover {
-  background: linear-gradient(90deg, #ffe6e6, #fff);
-}
-.results-table .score {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  background: #b30000;
-  text-align: center;
-  border-radius: 6px;
-}
-
-/* ====== صورة الطالب ====== */
-.student-photo {
-  width: 150px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-left: 20px;
-  align-self: flex-start;
-}
-
-/* ====== علامة مائية ====== */
-.watermark::before {
-  content: "IELTS IELTS IELTS IELTS";
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 40px;
-  color: rgba(200,0,0,0.08);
-  transform: rotate(-20deg);
-  white-space: nowrap;
-}
-
-/* ====== الشعارات ====== */
-.logo-section {
-  text-align: center;
-  margin: 20px 0;
-}
-.logo-section img {
-  height: 120px;
-  opacity: 0.85;
-  margin: 0 20px;
-}
-.banner-section {
-  text-align: center;
-  margin: 10px 0 30px;
-}
-.banner-section img {
-  max-width: 700px;
-  opacity: 0.65;
-}
-
-/* ====== صفحات إضافية (FAQ, Support, Contact, About) ====== */
-.results-box ul {
-  list-style: disc;
-  padding-left: 20px;
-}
-.results-box form {
-  display: flex;
-  flex-direction: column;
-}
-.results-box form input,
-.results-box form textarea {
-  padding: 10px;
-  margin-bottom: 12px;
+th, td {
   border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
 }
-.results-box form button {
-  background: #003366;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
+th {
+  background-color: #f2f2f2;
+}
+.overall {
+  background-color: #d60000;
+  color: white;
   font-weight: bold;
-  cursor: pointer;
 }
-.results-box form button:hover {
-  background: #002244;
+.photo {
+  float: left;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+footer {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+}
+footer .logos img {
+  height: 40px;
+  margin: 0 10px;
+}
+footer .links {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+footer .links li {
+  display: inline;
+  margin: 0 10px;
+}
+footer .links a {
+  text-decoration: none;
+  color: #0073e6;
+}
+footer .social a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #d60000;
+  font-weight: bold;
 }
