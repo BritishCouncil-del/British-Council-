@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IELTS Portal</title>
+  <title>IELTS Portal - Welcome</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="welcome">
 
+  <!-- Header -->
   <div class="header">
     <img src="images/ielts-logos.png" alt="IELTS Logo" class="ielts-logo">
-    <h1>IELTS Portal</h1>
+    <h1>IELTS™ English for International Opportunity</h1>
   </div>
 
-  <div class="marquee">
+  <!-- Blue bar -->
+  <div class="bar">
     <marquee behavior="scroll" direction="left" scrollamount="6">
-      جميع أنواع اختبار الآيلتس (Academic - General - UKVI - Life Skills)
+      Welcome to IELTS Test Report Form Portal - Academic | General | UKVI | Life Skills
     </marquee>
   </div>
 
-  <div class="form-box">
-    <h1 class="ielts-title">IELTS</h1>
-    <form onsubmit="return goToResults()">
-      <input type="text" id="serial" placeholder="Enter Serial/TRF Number" required>
-      <button type="submit" class="btn-animate">عرض النتيجة</button>
+  <!-- مربع البحث -->
+  <div class="login-box">
+    <form id="searchForm">
+      <label for="candidateNumber">Candidate Number:</label>
+      <input type="text" id="candidateNumber" name="candidateNumber" placeholder="Enter Candidate Number">
+
+      <label for="trfCode">TRF Code:</label>
+      <input type="text" id="trfCode" name="trfCode" placeholder="Enter TRF Code">
+
+      <button type="submit">عرض النتيجة</button>
     </form>
-    <div id="errorMsg"></div>
   </div>
 
+  <!-- الشعارات تحت مربع البحث -->
+  <div class="logo-section">
+    <img src="images/ielts-logos.png" alt="IELTS Logos">
+  </div>
+  <div class="banner-section">
+    <img src="images/ielts-banner.png" alt="IELTS Banner">
+  </div>
+
+  <!-- Footer -->
   <footer>
     © 2026 IELTS Results Portal | All Rights Reserved | 
     <a href="https://ielts.org" target="_blank">Official IELTS Website</a>
@@ -34,19 +49,26 @@
 
   <script src="students.js"></script>
   <script>
-    function goToResults() {
-      const serial = document.getElementById('serial').value.trim();
-      const student = students[serial];
+    document.getElementById("searchForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const candidateNumber = document.getElementById("candidateNumber").value.trim();
+      const trfCode = document.getElementById("trfCode").value.trim();
+
+      let student = null;
+      for (const key in students) {
+        if (students[key].candidate === candidateNumber || students[key].trfNumber === trfCode) {
+          student = students[key];
+          break;
+        }
+      }
 
       if (student) {
-        localStorage.setItem('serial', serial);
+        localStorage.setItem("studentData", JSON.stringify(student));
         window.location.href = "results.html";
       } else {
-        document.getElementById("errorMsg").innerHTML =
-          "<div class='alert-box'>❌ Invalid Serial/TRF Number</div>";
+        alert("لم يتم العثور على بيانات الطالب");
       }
-      return false;
-    }
+    });
   </script>
 </body>
 </html>
